@@ -51,5 +51,31 @@ namespace Photo_Viewer
                 }
             }
         }
+
+        private void menuItem4_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void menuItem6_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+        }
+
+        private void menuItem7_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void menuItem8_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void menuItem10_Click(object sender, EventArgs e)
+        {
+            AboutForm aboutForm = new AboutForm();
+            aboutForm.ShowDialog();
+        }
     }
 }

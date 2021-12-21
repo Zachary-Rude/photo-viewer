@@ -99,6 +99,7 @@
             // 
             this.menuItem4.Index = 2;
             this.menuItem4.Text = "Exit";
+            this.menuItem4.Click += new System.EventHandler(this.menuItem4_Click);
             // 
             // menuItem5
             // 
@@ -113,16 +114,19 @@
             // 
             this.menuItem6.Index = 0;
             this.menuItem6.Text = "Maximize";
+            this.menuItem6.Click += new System.EventHandler(this.menuItem6_Click);
             // 
             // menuItem7
             // 
             this.menuItem7.Index = 1;
             this.menuItem7.Text = "Minimize";
+            this.menuItem7.Click += new System.EventHandler(this.menuItem7_Click);
             // 
             // menuItem8
             // 
             this.menuItem8.Index = 2;
             this.menuItem8.Text = "Close";
+            this.menuItem8.Click += new System.EventHandler(this.menuItem8_Click);
             // 
             // menuItem9
             // 
@@ -135,6 +139,7 @@
             // 
             this.menuItem10.Index = 0;
             this.menuItem10.Text = "About";
+            this.menuItem10.Click += new System.EventHandler(this.menuItem10_Click);
             // 
             // Form1
             // 
