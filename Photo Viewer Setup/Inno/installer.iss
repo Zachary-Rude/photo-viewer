@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Photo Viewer"
-#define MyAppVersion "1.0.3"
+#define MyAppVersion "1.0.4"
 #define MyAppPublisher "Zach, Inc."
 #define MyAppExeName "Photo Viewer.exe"
 #define MyAppAssocName "PNG Image"
@@ -27,7 +27,7 @@ LicenseFile=C:\Users\zacha\Documents\License Agreement.rtf
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
 OutputDir=C:\Users\zacha\source\repos\Photo Viewer\Photo Viewer Setup\Inno
-OutputBaseFilename=Photo_Viewer_1_0_3_Setup
+OutputBaseFilename=Photo_Viewer_1_0_4_Setup
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
@@ -47,24 +47,24 @@ Source: "C:\Users\zacha\source\repos\Photo Viewer\Photo Viewer\bin\Debug\{#MyApp
 [Registry]
 Root: HKCR; Subkey: "{#MyAppAssocExt}\OpenWithProgids"; ValueType: string; ValueName: "{#MyAppAssocKey}"; ValueData: ""; Flags: uninsdeletevalue
 Root: HKCR; Subkey: "{#MyAppAssocKey}"; ValueType: string; ValueName: ""; ValueData: "{#MyAppAssocName}"; Flags: uninsdeletekey
-Root: HKCR; Subkey: "{#MyAppAssocKey}\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "{app}\{#MyAppExeName},0"
+Root: HKCR; Subkey: "{#MyAppAssocKey}\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "C:\Windows\System32\shell32.dll,313"
 Root: HKCR; Subkey: "{#MyAppAssocKey}\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\{#MyAppExeName}"" ""%1"""
 Root: HKCR; Subkey: "Applications\{#MyAppExeName}\SupportedTypes"; ValueType: string; ValueName: ".png"; ValueData: ""
 Root: HKCR; Subkey: ".jpg\OpenWithProgids"; ValueType: string; ValueName: "{#JpgAssocKey}"; ValueData: ""; Flags: uninsdeletevalue
 Root: HKCR; Subkey: ".jpeg\OpenWithProgids"; ValueType: string; ValueName: "{#JpgAssocKey}"; ValueData: ""; Flags: uninsdeletevalue
 Root: HKCR; Subkey: "{#JpgAssocKey}"; ValueType: string; ValueName: ""; ValueData: "JPEG Image"; Flags: uninsdeletekey
-Root: HKCR; Subkey: "{#JpgAssocKey}\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "{app}\{#MyAppExeName},0"
+Root: HKCR; Subkey: "{#JpgAssocKey}\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "C:\Windows\System32\shell32.dll,313"
 Root: HKCR; Subkey: "{#JpgAssocKey}\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\{#MyAppExeName}"" ""%1"""
 Root: HKCR; Subkey: "Applications\{#MyAppExeName}\SupportedTypes"; ValueType: string; ValueName: ".jpg"; ValueData: ""
 Root: HKCR; Subkey: "Applications\{#MyAppExeName}\SupportedTypes"; ValueType: string; ValueName: ".jpeg"; ValueData: ""
 Root: HKCR; Subkey: ".bmp\OpenWithProgids"; ValueType: string; ValueName: "{#BmpAssocKey}"; ValueData: ""; Flags: uninsdeletevalue
 Root: HKCR; Subkey: "{#BmpAssocKey}"; ValueType: string; ValueName: ""; ValueData: "BMP Image"; Flags: uninsdeletekey
-Root: HKCR; Subkey: "{#BmpAssocKey}\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "{app}\{#MyAppExeName},0"
+Root: HKCR; Subkey: "{#BmpAssocKey}\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "C:\Windows\System32\shell32.dll,313"
 Root: HKCR; Subkey: "{#BmpAssocKey}\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\{#MyAppExeName}"" ""%1"""
 Root: HKCR; Subkey: "Applications\{#MyAppExeName}\SupportedTypes"; ValueType: string; ValueName: ".bmp"; ValueData: ""
 Root: HKCR; Subkey: ".gif\OpenWithProgids"; ValueType: string; ValueName: "{#GifAssocKey}"; ValueData: ""; Flags: uninsdeletevalue
 Root: HKCR; Subkey: "{#GifAssocKey}"; ValueType: string; ValueName: ""; ValueData: "GIF Image"; Flags: uninsdeletekey
-Root: HKCR; Subkey: "{#GifAssocKey}\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "{app}\{#MyAppExeName},0"
+Root: HKCR; Subkey: "{#GifAssocKey}\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "C:\Windows\System32\shell32.dll,313"
 Root: HKCR; Subkey: "{#GifAssocKey}\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\{#MyAppExeName}"" ""%1"""
 Root: HKCR; Subkey: "Applications\{#MyAppExeName}\SupportedTypes"; ValueType: string; ValueName: ".gif"; ValueData: ""
 Root: HKLM64; Subkey: "SOFTWARE\{#RegCapKey}\Capabilities"; ValueType: string; ValueName: "ApplicationDescription"; ValueData: "A free and open-source photo viewer for Windows."; Flags: uninsdeletekey; Check: IsWin64
