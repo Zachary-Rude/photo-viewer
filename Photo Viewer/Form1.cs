@@ -31,6 +31,7 @@ namespace Photo_Viewer
 
             pictureBox1.Image = Image.FromFile(Path.GetFullPath(fileName));
             this.Text = Path.GetFileName(fileName) + " - Photo Viewer";
+            statusBar2.Text = "Image Size: " + pictureBox1.Image.Height + "x" + pictureBox1.Image.Width;
         }
 
         private void menuItem2_Click(object sender, EventArgs e)
@@ -43,6 +44,7 @@ namespace Photo_Viewer
                     {
                         pictureBox1.Image = Image.FromFile(ofd.FileName);
                         this.Text = Path.GetFileName(ofd.FileName) + " - Photo Viewer";
+                        statusBar2.Text = "Image Size: " + pictureBox1.Image.Height + "x" + pictureBox1.Image.Width;
                     }
                     catch (Exception ex)
                     {

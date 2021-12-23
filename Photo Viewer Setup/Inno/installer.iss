@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Photo Viewer"
-#define MyAppVersion "1.0.5"
+#define MyAppVersion "1.0.6"
 #define MyAppPublisher "Zach, Inc."
 #define MyAppExeName "Photo Viewer.exe"
 #define MyAppAssocName "PNG Image"
@@ -28,12 +28,14 @@ LicenseFile=C:\Users\zacha\Documents\License Agreement.rtf
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
 OutputDir=C:\Users\zacha\source\repos\Photo Viewer\Photo Viewer Setup\Inno
-OutputBaseFilename=Photo_Viewer_1_0_5_Setup
+OutputBaseFilename=Photo_Viewer_1_0_6_Setup
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
 DisableWelcomePage=no
 DisableProgramGroupPage=yes
+WizardImageFile=C:\Users\zacha\source\repos\Photo Viewer\Photo Viewer Setup\Inno\Picture-Viewer-icon.bmp
+WizardSmallImageFile=C:\Users\zacha\source\repos\Photo Viewer\Photo Viewer Setup\Inno\Picture-Viewer-icon-small.bmp
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
@@ -59,7 +61,7 @@ Root: HKCR; Subkey: "{#JpgAssocKey}\shell\open\command"; ValueType: string; Valu
 Root: HKCR; Subkey: "Applications\{#MyAppExeName}\SupportedTypes"; ValueType: string; ValueName: ".jpg"; ValueData: ""
 Root: HKCR; Subkey: "Applications\{#MyAppExeName}\SupportedTypes"; ValueType: string; ValueName: ".jpeg"; ValueData: ""
 Root: HKCR; Subkey: ".bmp\OpenWithProgids"; ValueType: string; ValueName: "{#BmpAssocKey}"; ValueData: ""; Flags: uninsdeletevalue
-Root: HKCR; Subkey: "{#BmpAssocKey}"; ValueType: string; ValueName: ""; ValueData: "BMP Image"; Flags: uninsdeletekey
+Root: HKCR; Subkey: "{#BmpAssocKey}"; ValueType: string; ValueName: ""; ValueData: "Bitmap Image"; Flags: uninsdeletekey
 Root: HKCR; Subkey: "{#BmpAssocKey}\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "C:\Windows\System32\shell32.dll,313"
 Root: HKCR; Subkey: "{#BmpAssocKey}\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\{#MyAppExeName}"" ""%1"""
 Root: HKCR; Subkey: "Applications\{#MyAppExeName}\SupportedTypes"; ValueType: string; ValueName: ".bmp"; ValueData: ""
