@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Photo Viewer"
-#define MyAppVersion "1.0.4"
+#define MyAppVersion "1.0.5"
 #define MyAppPublisher "Zach, Inc."
 #define MyAppExeName "Photo Viewer.exe"
 #define MyAppAssocName "PNG Image"
@@ -11,6 +11,7 @@
 #define JpgAssocKey StringChange(MyAppAssocName, " ", "") + ".jpg"
 #define GifAssocKey StringChange(MyAppAssocName, " ", "") + ".gif"
 #define BmpAssocKey StringChange(MyAppAssocName, " ", "") + ".bmp"
+#define WmfAssocKey StringChange(MyAppAssocName, " ", "") + ".wmf"
 #define RegCapKey StringChange(MyAppName, " ", "")
 
 [Setup]
@@ -27,7 +28,7 @@ LicenseFile=C:\Users\zacha\Documents\License Agreement.rtf
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
 OutputDir=C:\Users\zacha\source\repos\Photo Viewer\Photo Viewer Setup\Inno
-OutputBaseFilename=Photo_Viewer_1_0_4_Setup
+OutputBaseFilename=Photo_Viewer_1_0_5_Setup
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
@@ -67,12 +68,18 @@ Root: HKCR; Subkey: "{#GifAssocKey}"; ValueType: string; ValueName: ""; ValueDat
 Root: HKCR; Subkey: "{#GifAssocKey}\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "C:\Windows\System32\shell32.dll,313"
 Root: HKCR; Subkey: "{#GifAssocKey}\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\{#MyAppExeName}"" ""%1"""
 Root: HKCR; Subkey: "Applications\{#MyAppExeName}\SupportedTypes"; ValueType: string; ValueName: ".gif"; ValueData: ""
+Root: HKCR; Subkey: ".wmf\OpenWithProgids"; ValueType: string; ValueName: "{#WmfAssocKey}"; ValueData: ""; Flags: uninsdeletevalue
+Root: HKCR; Subkey: "{#WmfAssocKey}"; ValueType: string; ValueName: ""; ValueData: "Windows Metafile Image"; Flags: uninsdeletekey
+Root: HKCR; Subkey: "{#WmfAssocKey}\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "C:\Windows\System32\shell32.dll,313"
+Root: HKCR; Subkey: "{#WmfAssocKey}\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\{#MyAppExeName}"" ""%1"""
+Root: HKCR; Subkey: "Applications\{#MyAppExeName}\SupportedTypes"; ValueType: string; ValueName: ".wmf"; ValueData: ""
 Root: HKLM64; Subkey: "SOFTWARE\{#RegCapKey}\Capabilities"; ValueType: string; ValueName: "ApplicationDescription"; ValueData: "A free and open-source photo viewer for Windows."; Flags: uninsdeletekey; Check: IsWin64
 Root: HKLM64; Subkey: "SOFTWARE\{#RegCapKey}\Capabilities\FileAssociations"; ValueType: string; ValueName: ".png"; ValueData: "{#MyAppAssocKey}"; Flags: uninsdeletevalue; Check: IsWin64
 Root: HKLM64; Subkey: "SOFTWARE\{#RegCapKey}\Capabilities\FileAssociations"; ValueType: string; ValueName: ".jpg"; ValueData: "{#JpgAssocKey}"; Flags: uninsdeletevalue; Check: IsWin64
 Root: HKLM64; Subkey: "SOFTWARE\{#RegCapKey}\Capabilities\FileAssociations"; ValueType: string; ValueName: ".jpeg"; ValueData: "{#JpgAssocKey}"; Flags: uninsdeletevalue; Check: IsWin64
 Root: HKLM64; Subkey: "SOFTWARE\{#RegCapKey}\Capabilities\FileAssociations"; ValueType: string; ValueName: ".bmp"; ValueData: "{#BmpAssocKey}"; Flags: uninsdeletevalue; Check: IsWin64
 Root: HKLM64; Subkey: "SOFTWARE\{#RegCapKey}\Capabilities\FileAssociations"; ValueType: string; ValueName: ".gif"; ValueData: "{#GifAssocKey}"; Flags: uninsdeletevalue; Check: IsWin64
+Root: HKLM64; Subkey: "SOFTWARE\{#RegCapKey}\Capabilities\FileAssociations"; ValueType: string; ValueName: ".wmf"; ValueData: "{#WmfAssocKey}"; Flags: uninsdeletevalue; Check: IsWin64
 Root: HKLM64; Subkey: "SOFTWARE\{#RegCapKey}\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\{#MyAppExeName}"""; Check: IsWin64
 Root: HKLM64; Subkey: "SOFTWARE\RegisteredApplications"; ValueType: string; ValueName: "{#MyAppName}"; ValueData: "SOFTWARE\{#RegCapKey}\Capabilities"; Flags: uninsdeletevalue; Check: IsWin64
 Root: HKLM; Subkey: "SOFTWARE\{#RegCapKey}\Capabilities"; ValueType: string; ValueName: "ApplicationDescription"; ValueData: "A free and open-source photo viewer for Windows."; Flags: uninsdeletekey
@@ -81,6 +88,7 @@ Root: HKLM; Subkey: "SOFTWARE\{#RegCapKey}\Capabilities\FileAssociations"; Value
 Root: HKLM; Subkey: "SOFTWARE\{#RegCapKey}\Capabilities\FileAssociations"; ValueType: string; ValueName: ".jpeg"; ValueData: "{#JpgAssocKey}"; Flags: uninsdeletevalue
 Root: HKLM; Subkey: "SOFTWARE\{#RegCapKey}\Capabilities\FileAssociations"; ValueType: string; ValueName: ".bmp"; ValueData: "{#BmpAssocKey}"
 Root: HKLM; Subkey: "SOFTWARE\{#RegCapKey}\Capabilities\FileAssociations"; ValueType: string; ValueName: ".gif"; ValueData: "{#GifAssocKey}"; Flags: uninsdeletevalue
+Root: HKLM; Subkey: "SOFTWARE\{#RegCapKey}\Capabilities\FileAssociations"; ValueType: string; ValueName: ".wmf"; ValueData: "{#WmfAssocKey}"; Flags: uninsdeletevalue
 Root: HKLM; Subkey: "SOFTWARE\{#RegCapKey}\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\{#MyAppExeName}"""
 Root: HKLM; Subkey: "SOFTWARE\RegisteredApplications"; ValueType: string; ValueName: "{#MyAppName}"; ValueData: "SOFTWARE\{#RegCapKey}\Capabilities"; Flags: uninsdeletevalue
 

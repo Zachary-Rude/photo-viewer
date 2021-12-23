@@ -31,12 +31,11 @@ namespace Photo_Viewer
 
             pictureBox1.Image = Image.FromFile(Path.GetFullPath(fileName));
             this.Text = Path.GetFileName(fileName) + " - Photo Viewer";
-            statusBar2.Text = "Image Size: " + pictureBox1.Image.Height + "x" + pictureBox1.Image.Width;
         }
 
         private void menuItem2_Click(object sender, EventArgs e)
         {
-            using (OpenFileDialog ofd = new OpenFileDialog() { Filter = "Image Files (*.jpg; *.jpeg; *.png; *.bmp; *.gif)|*.jpg; *.jpeg; *.png; *.bmp; *.gif|All Files (*.*)|*.*", Title = "Select an image file to open", InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures) })
+            using (OpenFileDialog ofd = new OpenFileDialog() { Filter = "Image Files (*.jpg; *.jpeg; *.png; *.bmp; *.gif; *.wmf)|*.jpg; *.jpeg; *.png; *.bmp; *.gif; *.wmf|All Files (*.*)|*.*", Title = "Select an image file to open", InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures) })
             {
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
@@ -44,7 +43,6 @@ namespace Photo_Viewer
                     {
                         pictureBox1.Image = Image.FromFile(ofd.FileName);
                         this.Text = Path.GetFileName(ofd.FileName) + " - Photo Viewer";
-                        statusBar2.Text = "Image Size: " + pictureBox1.Image.Height + "x" + pictureBox1.Image.Width;
                     }
                     catch (Exception ex)
                     {
