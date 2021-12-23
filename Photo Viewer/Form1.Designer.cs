@@ -49,9 +49,13 @@
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.statusBarPanel1 = new System.Windows.Forms.StatusBarPanel();
+            this.statusBarPanel2 = new System.Windows.Forms.StatusBarPanel();
             this.panel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.statusBarPanel1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.statusBarPanel2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -62,10 +66,10 @@
             this.panel1.AutoSize = true;
             this.panel1.BackColor = System.Drawing.Color.Black;
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(0, 26);
+            this.panel1.Location = new System.Drawing.Point(0, 25);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(600, 361);
+            this.panel1.Size = new System.Drawing.Size(600, 362);
             this.panel1.TabIndex = 0;
             // 
             // statusBar2
@@ -73,7 +77,11 @@
             this.statusBar2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.statusBar2.Location = new System.Drawing.Point(0, 384);
             this.statusBar2.Name = "statusBar2";
+            this.statusBar2.Panels.AddRange(new System.Windows.Forms.StatusBarPanel[] {
+            this.statusBarPanel1,
+            this.statusBarPanel2});
             this.statusBar2.Size = new System.Drawing.Size(597, 26);
+            this.statusBar2.SizingGrip = false;
             this.statusBar2.TabIndex = 1;
             // 
             // mainMenu1
@@ -154,6 +162,7 @@
             // 
             this.toolStrip1.AutoSize = false;
             this.toolStrip1.CanOverflow = false;
+            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
             this.toolStripButton2,
@@ -174,7 +183,7 @@
             this.toolStripButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(28, 28);
+            this.toolStripButton1.Size = new System.Drawing.Size(29, 29);
             this.toolStripButton1.Text = "toolStripButton1";
             this.toolStripButton1.ToolTipText = "Open";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
@@ -182,10 +191,11 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Black;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(597, 355);
+            this.pictureBox1.Size = new System.Drawing.Size(600, 362);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -198,7 +208,7 @@
             this.toolStripButton2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(28, 28);
+            this.toolStripButton2.Size = new System.Drawing.Size(29, 29);
             this.toolStripButton2.Text = "toolStripButton2";
             this.toolStripButton2.ToolTipText = "Print";
             this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
@@ -219,6 +229,20 @@
             this.toolStripButton3.ToolTipText = "About";
             this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
+            // statusBarPanel1
+            // 
+            this.statusBarPanel1.AutoSize = System.Windows.Forms.StatusBarPanelAutoSize.Contents;
+            this.statusBarPanel1.Name = "statusBarPanel1";
+            this.statusBarPanel1.Text = "statusBarPanel1";
+            this.statusBarPanel1.Width = 101;
+            // 
+            // statusBarPanel2
+            // 
+            this.statusBarPanel2.AutoSize = System.Windows.Forms.StatusBarPanelAutoSize.Contents;
+            this.statusBarPanel2.Name = "statusBarPanel2";
+            this.statusBarPanel2.Text = "statusBarPanel2";
+            this.statusBarPanel2.Width = 101;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -236,6 +260,8 @@
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.statusBarPanel1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.statusBarPanel2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -262,6 +288,8 @@
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.StatusBarPanel statusBarPanel1;
+        private System.Windows.Forms.StatusBarPanel statusBarPanel2;
     }
 }
 

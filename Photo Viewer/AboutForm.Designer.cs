@@ -51,11 +51,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(108, 259);
+            this.label2.Location = new System.Drawing.Point(99, 259);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Version 1.0.7";
+            this.label2.Text = "Version 1.0.8";
             // 
             // label3
             // 
@@ -81,9 +81,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(12, 28);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 25);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(250, 228);
+            this.pictureBox1.Size = new System.Drawing.Size(250, 231);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 

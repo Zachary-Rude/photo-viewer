@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Photo Viewer"
-#define MyAppVersion "1.0.7"
+#define MyAppVersion "1.0.8"
 #define MyAppPublisher "Zach, Inc."
 #define MyAppExeName "Photo Viewer.exe"
 #define MyAppAssocName "PNG Image"
@@ -28,10 +28,9 @@ LicenseFile=C:\Users\zacha\Documents\License Agreement.rtf
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
 OutputDir=C:\Users\zacha\source\repos\Photo Viewer\Photo Viewer Setup\Inno
-OutputBaseFilename=Photo_Viewer_1_0_7_Setup
+OutputBaseFilename=Photo_Viewer_1_0_8_Setup
 Compression=lzma
 SolidCompression=yes
-WizardStyle=modern
 DisableWelcomePage=no
 DisableProgramGroupPage=yes
 WizardImageFile=C:\Users\zacha\source\repos\Photo Viewer\Photo Viewer Setup\Inno\Picture-Viewer-icon.bmp
