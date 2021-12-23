@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Drawing.Printing;
 
 namespace Photo_Viewer
 {
@@ -80,9 +81,34 @@ namespace Photo_Viewer
             aboutForm.ShowDialog();
         }
 
-        private void menuItem12_Click(object sender, EventArgs e)
+        private void toolStripButton1_Click(object sender, EventArgs e)
         {
+            menuItem2.PerformClick();
+        }
 
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            //Show print dialog
+            PrintDialog pd = new PrintDialog();
+            PrintDocument doc = new PrintDocument();
+            doc.PrintPage += Doc_PrintPage;
+            pd.Document = doc;
+            if (pd.ShowDialog() == DialogResult.OK)
+                doc.Print();
+        }
+
+        private void Doc_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            //Print image
+            Bitmap bm = new Bitmap(pictureBox1.Image.Width, pictureBox1.Image.Height);
+            pictureBox1.DrawToBitmap(bm, new Rectangle(0, 0, pictureBox1.Image.Width, pictureBox1.Image.Height));
+            e.Graphics.DrawImage(bm, 0, 0);
+            bm.Dispose();
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            menuItem10.PerformClick();
         }
     }
 }
