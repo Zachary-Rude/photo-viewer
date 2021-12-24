@@ -17,6 +17,7 @@ namespace Photo_Viewer
         public Form1()
         {
             InitializeComponent();
+            statusBar2.Text = "No image file open";
         }
 
         public Form1(string fileName) : this()
@@ -33,13 +34,14 @@ namespace Photo_Viewer
             pictureBox1.Image = Image.FromFile(Path.GetFullPath(fileName));
             statusBarPanel2.Text = "Image Size: " + pictureBox1.Image.Height + "x" + pictureBox1.Image.Width;
             statusBarPanel1.Text = "File Name: " + Path.GetFileName(fileName);
+            statusBar2.Text = "";
             statusBar2.ShowPanels = true;
             this.Text = Path.GetFileName(fileName) + " - Photo Viewer";
         }
 
         private void menuItem2_Click(object sender, EventArgs e)
         {
-            using (OpenFileDialog ofd = new OpenFileDialog() { Filter = "Image Files (*.jpg; *.jpeg; *.png; *.bmp; *.gif; *.wmf)|*.jpg; *.jpeg; *.png; *.bmp; *.gif; *.wmf|All Files (*.*)|*.*", Title = "Select an image file to open", InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures), Multiselect = false })
+            using (OpenFileDialog ofd = new OpenFileDialog() { Filter = "Image Files (*.jpg; *.jpeg; *.png; *.bmp; *.gif; *.wmf; *.ico)|*.jpg; *.jpeg; *.png; *.bmp; *.gif; *.wmf; *.ico|All Files (*.*)|*.*", InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures), Multiselect = false })
             {
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
@@ -49,6 +51,7 @@ namespace Photo_Viewer
                         this.Text = Path.GetFileName(ofd.FileName) + " - Photo Viewer";
                         statusBarPanel2.Text = "Image Size: " + pictureBox1.Image.Height + "x" + pictureBox1.Image.Width;
                         statusBarPanel1.Text = "File Name: " + Path.GetFileName(ofd.FileName);
+                        statusBar2.Text = "";
                         statusBar2.ShowPanels = true;
                     }
                     catch (Exception ex)

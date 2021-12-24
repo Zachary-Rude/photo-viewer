@@ -31,7 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.statusBar2 = new System.Windows.Forms.StatusBar();
+            this.statusBarPanel1 = new System.Windows.Forms.StatusBarPanel();
+            this.statusBarPanel2 = new System.Windows.Forms.StatusBarPanel();
             this.mainMenu1 = new System.Windows.Forms.MainMenu(this.components);
             this.menuItem1 = new System.Windows.Forms.MenuItem();
             this.menuItem2 = new System.Windows.Forms.MenuItem();
@@ -45,17 +48,14 @@
             this.menuItem10 = new System.Windows.Forms.MenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.statusBarPanel1 = new System.Windows.Forms.StatusBarPanel();
-            this.statusBarPanel2 = new System.Windows.Forms.StatusBarPanel();
             this.panel1.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.statusBarPanel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.statusBarPanel2)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -72,6 +72,18 @@
             this.panel1.Size = new System.Drawing.Size(600, 362);
             this.panel1.TabIndex = 0;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Black;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(600, 362);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // statusBar2
             // 
             this.statusBar2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -83,6 +95,20 @@
             this.statusBar2.Size = new System.Drawing.Size(597, 26);
             this.statusBar2.SizingGrip = false;
             this.statusBar2.TabIndex = 1;
+            // 
+            // statusBarPanel1
+            // 
+            this.statusBarPanel1.AutoSize = System.Windows.Forms.StatusBarPanelAutoSize.Contents;
+            this.statusBarPanel1.Name = "statusBarPanel1";
+            this.statusBarPanel1.Text = "statusBarPanel1";
+            this.statusBarPanel1.Width = 101;
+            // 
+            // statusBarPanel2
+            // 
+            this.statusBarPanel2.AutoSize = System.Windows.Forms.StatusBarPanelAutoSize.Contents;
+            this.statusBarPanel2.Name = "statusBarPanel2";
+            this.statusBarPanel2.Text = "statusBarPanel2";
+            this.statusBarPanel2.Width = 101;
             // 
             // mainMenu1
             // 
@@ -188,18 +214,6 @@
             this.toolStripButton1.ToolTipText = "Open";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Black;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(600, 362);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
             // toolStripButton2
             // 
             this.toolStripButton2.AutoSize = false;
@@ -229,20 +243,6 @@
             this.toolStripButton3.ToolTipText = "About";
             this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
-            // statusBarPanel1
-            // 
-            this.statusBarPanel1.AutoSize = System.Windows.Forms.StatusBarPanelAutoSize.Contents;
-            this.statusBarPanel1.Name = "statusBarPanel1";
-            this.statusBarPanel1.Text = "statusBarPanel1";
-            this.statusBarPanel1.Width = 101;
-            // 
-            // statusBarPanel2
-            // 
-            this.statusBarPanel2.AutoSize = System.Windows.Forms.StatusBarPanelAutoSize.Contents;
-            this.statusBarPanel2.Name = "statusBarPanel2";
-            this.statusBarPanel2.Text = "statusBarPanel2";
-            this.statusBarPanel2.Width = 101;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -257,11 +257,11 @@
             this.Name = "Form1";
             this.Text = "Photo Viewer";
             this.panel1.ResumeLayout(false);
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.statusBarPanel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.statusBarPanel2)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
