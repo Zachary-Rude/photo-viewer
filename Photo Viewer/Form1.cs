@@ -18,6 +18,7 @@ namespace Photo_Viewer
         {
             InitializeComponent();
             statusBar2.Text = "No image file open";
+            pictureBox1.BackColor = Properties.Settings.Default.BackgroundColor;
         }
 
         public Form1(string fileName) : this()
@@ -32,10 +33,13 @@ namespace Photo_Viewer
             }
 
             pictureBox1.Image = Image.FromFile(Path.GetFullPath(fileName));
-            statusBarPanel2.Text = "Image Size: " + pictureBox1.Image.Height + "x" + pictureBox1.Image.Width;
+            statusBarPanel2.Text = "Dimensions: " + pictureBox1.Image.Height + "x" + pictureBox1.Image.Width;
             statusBarPanel1.Text = "File Name: " + Path.GetFileName(fileName);
             statusBar2.Text = "";
             statusBar2.ShowPanels = true;
+            toolStripButton2.Enabled = true;
+            toolStripButton4.Enabled = true;
+            menuItem13.Enabled = true;
             this.Text = Path.GetFileName(fileName) + " - Photo Viewer";
         }
 
@@ -49,10 +53,13 @@ namespace Photo_Viewer
                     {
                         pictureBox1.Image = Image.FromFile(ofd.FileName);
                         this.Text = Path.GetFileName(ofd.FileName) + " - Photo Viewer";
-                        statusBarPanel2.Text = "Image Size: " + pictureBox1.Image.Height + "x" + pictureBox1.Image.Width;
+                        statusBarPanel2.Text = "Dimensions: " + pictureBox1.Image.Height + "x" + pictureBox1.Image.Width;
                         statusBarPanel1.Text = "File Name: " + Path.GetFileName(ofd.FileName);
                         statusBar2.Text = "";
                         statusBar2.ShowPanels = true;
+                        toolStripButton2.Enabled = true;
+                        toolStripButton4.Enabled = true;
+                        menuItem13.Enabled = true;
                     }
                     catch (Exception ex)
                     {
@@ -116,6 +123,32 @@ namespace Photo_Viewer
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
             menuItem10.PerformClick();
+        }
+
+        private void menuItem13_Click(object sender, EventArgs e)
+        {
+            toolStripButton2.PerformClick();
+        }
+
+        private void menuItem14_Click(object sender, EventArgs e)
+        {
+            using (ColorDialog cd = new ColorDialog() { Color = Properties.Settings.Default.BackgroundColor })
+            {
+                if (cd.ShowDialog() == DialogResult.OK)
+                {
+                    Properties.Settings.Default.BackgroundColor = cd.Color;
+                    Properties.Settings.Default.Save();
+                    pictureBox1.BackColor = Properties.Settings.Default.BackgroundColor;
+                }
+            }
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            InfoForm infoForm = new InfoForm();
+            infoForm.label1.Text = infoForm.label1.Text + this.Text.Replace(" - Photo Viewer", "");
+            infoForm.label2.Text = infoForm.label2.Text + statusBarPanel2.Text.Replace("Dimensions: ", "");
+            infoForm.ShowDialog();
         }
     }
 }
