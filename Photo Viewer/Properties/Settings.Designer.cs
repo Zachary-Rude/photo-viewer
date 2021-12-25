@@ -34,5 +34,17 @@ namespace Photo_Viewer.Properties {
                 this["BackgroundColor"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("5000")]
+        public int SlideshowDelay {
+            get {
+                return ((int)(this["SlideshowDelay"]));
+            }
+            set {
+                this["SlideshowDelay"] = value;
+            }
+        }
     }
 }

@@ -19,6 +19,8 @@ namespace Photo_Viewer
             InitializeComponent();
             statusBar2.Text = "No image file open";
             pictureBox1.BackColor = Properties.Settings.Default.BackgroundColor;
+            panel1.BackColor = Properties.Settings.Default.BackgroundColor;
+            txtSlideDelay.Text = ((double)Properties.Settings.Default.SlideshowDelay / 1000).ToString();
         }
 
         public Form1(string fileName) : this()
@@ -39,6 +41,8 @@ namespace Photo_Viewer
             statusBar2.ShowPanels = true;
             toolStripButton2.Enabled = true;
             toolStripButton4.Enabled = true;
+            toolStripButton5.Enabled = true;
+            toolStripButton6.Enabled = true;
             menuItem13.Enabled = true;
             this.Text = Path.GetFileName(fileName) + " - Photo Viewer";
         }
@@ -59,6 +63,8 @@ namespace Photo_Viewer
                         statusBar2.ShowPanels = true;
                         toolStripButton2.Enabled = true;
                         toolStripButton4.Enabled = true;
+                        toolStripButton5.Enabled = true;
+                        toolStripButton6.Enabled = true;
                         menuItem13.Enabled = true;
                     }
                     catch (Exception ex)
@@ -139,6 +145,7 @@ namespace Photo_Viewer
                     Properties.Settings.Default.BackgroundColor = cd.Color;
                     Properties.Settings.Default.Save();
                     pictureBox1.BackColor = Properties.Settings.Default.BackgroundColor;
+                    panel1.BackColor = Properties.Settings.Default.BackgroundColor;
                 }
             }
         }
@@ -149,6 +156,65 @@ namespace Photo_Viewer
             infoForm.label1.Text = infoForm.label1.Text + this.Text.Replace(" - Photo Viewer", "");
             infoForm.label2.Text = infoForm.label2.Text + statusBarPanel2.Text.Replace("Dimensions: ", "");
             infoForm.ShowDialog();
+        }
+
+        private async void toolStripButton7_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog ofd = new OpenFileDialog() { Filter = "Image Files (*.jpg; *.jpeg; *.png; *.bmp; *.gif; *.wmf; *.ico)|*.jpg; *.jpeg; *.png; *.bmp; *.gif; *.wmf; *.ico|All Files (*.*)|*.*", InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures), Multiselect = true, Title = "Select images for the slideshow" })
+            {
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    foreach (string file in ofd.FileNames)
+                    {
+                        try
+                        {
+                            pictureBox1.Image = Image.FromFile(file);
+                            this.Text = Path.GetFileName(file) + " - Photo Viewer";
+                            statusBarPanel2.Text = "Dimensions: " + pictureBox1.Image.Height + "x" + pictureBox1.Image.Width;
+                            statusBarPanel1.Text = "File Name: " + Path.GetFileName(file);
+                            statusBar2.Text = "";
+                            statusBar2.ShowPanels = true;
+                            toolStripButton2.Enabled = true;
+                            toolStripButton4.Enabled = true;
+                            toolStripButton5.Enabled = true;
+                            toolStripButton6.Enabled = true;
+                            menuItem13.Enabled = true;
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, "Cannot open image", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        await Task.Delay(Properties.Settings.Default.SlideshowDelay);
+                    }
+                }
+            }
+        }
+
+        private void txtSlideDelay_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 13)
+            {
+                float secSlideDelay = float.Parse(txtSlideDelay.Text);
+                int slideDelay = (int)(secSlideDelay * 1000);
+                Properties.Settings.Default.SlideshowDelay = slideDelay;
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Top = (int)(pictureBox1.Top - (pictureBox1.Height * 0.025));
+            pictureBox1.Left = (int)(pictureBox1.Left - (pictureBox1.Width * 0.025));
+            pictureBox1.Height = (int)(pictureBox1.Height + (pictureBox1.Height * 0.05));
+            pictureBox1.Width = (int)(pictureBox1.Width + (pictureBox1.Width * 0.05));
+        }
+
+        private void toolStripButton6_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Top = (int)(pictureBox1.Top + (pictureBox1.Height * 0.025));
+            pictureBox1.Left = (int)(pictureBox1.Left + (pictureBox1.Width * 0.025));
+            pictureBox1.Height = (int)(pictureBox1.Height - (pictureBox1.Height * 0.05));
+            pictureBox1.Width = (int)(pictureBox1.Width - (pictureBox1.Width * 0.05));
         }
     }
 }
