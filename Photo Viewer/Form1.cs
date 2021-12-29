@@ -216,5 +216,10 @@ namespace Photo_Viewer
             pictureBox1.Height = (int)(pictureBox1.Height - (pictureBox1.Height * 0.05));
             pictureBox1.Width = (int)(pictureBox1.Width - (pictureBox1.Width * 0.05));
         }
+
+        private void menuItem15_Click(object sender, EventArgs e)
+        {
+            toolStripButton7.PerformClick();
+        }
     }
 }

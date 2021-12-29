@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Photo Viewer"
-#define MyAppVersion "1.1.1"
+#define MyAppVersion "1.1.2"
 #define MyAppPublisher "Zach, Inc."
 #define MyAppExeName "Photo Viewer.exe"
 #define MyAppAssocName "PNG Image"
@@ -21,7 +21,7 @@
 AppId={{88E7BA21-00C5-4A8F-AEE9-5B64E3DD5407}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
-;AppVerName={#MyAppName} {#MyAppVersion}
+AppVerName={#MyAppName}
 AppPublisher={#MyAppPublisher}
 DefaultDirName={autopf}\{#MyAppPublisher}\{#MyAppName}
 ChangesAssociations=yes
@@ -29,13 +29,15 @@ LicenseFile=C:\Users\zacha\Documents\License Agreement.rtf
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
 OutputDir=C:\Users\zacha\source\repos\Photo Viewer\Photo Viewer Setup\Inno
-OutputBaseFilename=Photo_Viewer_1_1_1_Setup
+OutputBaseFilename=Photo_Viewer_1_1_2_Setup
 Compression=lzma
 SolidCompression=yes
 DisableWelcomePage=no
 DisableProgramGroupPage=yes
 WizardImageFile=C:\Users\zacha\source\repos\Photo Viewer\Photo Viewer Setup\Inno\Picture-Viewer-icon.bmp
 WizardSmallImageFile=C:\Users\zacha\source\repos\Photo Viewer\Photo Viewer Setup\Inno\Picture-Viewer-icon-small.bmp
+UninstallDisplayIcon={app}\{#MyAppExeName},0
+UninstallDisplayName={#MyAppName}
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"

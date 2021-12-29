@@ -46,14 +46,12 @@
             this.menuItem6 = new System.Windows.Forms.MenuItem();
             this.menuItem7 = new System.Windows.Forms.MenuItem();
             this.menuItem8 = new System.Windows.Forms.MenuItem();
-            this.menuItem11 = new System.Windows.Forms.MenuItem();
-            this.menuItem13 = new System.Windows.Forms.MenuItem();
             this.menuItem9 = new System.Windows.Forms.MenuItem();
             this.menuItem10 = new System.Windows.Forms.MenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
             this.txtSlideDelay = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
@@ -61,6 +59,10 @@
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.menuItem11 = new System.Windows.Forms.MenuItem();
+            this.menuItem13 = new System.Windows.Forms.MenuItem();
+            this.menuItem15 = new System.Windows.Forms.MenuItem();
+            this.menuItem16 = new System.Windows.Forms.MenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.statusBarPanel1)).BeginInit();
@@ -73,7 +75,7 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.AutoSize = true;
+            this.panel1.AutoScroll = true;
             this.panel1.BackColor = System.Drawing.Color.Black;
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(0, 30);
@@ -125,7 +127,6 @@
             this.menuItem1,
             this.menuItem12,
             this.menuItem5,
-            this.menuItem11,
             this.menuItem9});
             // 
             // menuItem1
@@ -134,6 +135,10 @@
             this.menuItem1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.menuItem2,
             this.menuItem3,
+            this.menuItem15,
+            this.menuItem16,
+            this.menuItem13,
+            this.menuItem11,
             this.menuItem4});
             this.menuItem1.Text = "File";
             // 
@@ -151,7 +156,7 @@
             // 
             // menuItem4
             // 
-            this.menuItem4.Index = 2;
+            this.menuItem4.Index = 6;
             this.menuItem4.Text = "Exit";
             this.menuItem4.Click += new System.EventHandler(this.menuItem4_Click);
             // 
@@ -195,24 +200,9 @@
             this.menuItem8.Text = "Close";
             this.menuItem8.Click += new System.EventHandler(this.menuItem8_Click);
             // 
-            // menuItem11
-            // 
-            this.menuItem11.Index = 3;
-            this.menuItem11.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.menuItem13});
-            this.menuItem11.Text = "Tool";
-            // 
-            // menuItem13
-            // 
-            this.menuItem13.Enabled = false;
-            this.menuItem13.Index = 0;
-            this.menuItem13.Shortcut = System.Windows.Forms.Shortcut.CtrlP;
-            this.menuItem13.Text = "Print";
-            this.menuItem13.Click += new System.EventHandler(this.menuItem13_Click);
-            // 
             // menuItem9
             // 
-            this.menuItem9.Index = 4;
+            this.menuItem9.Index = 3;
             this.menuItem9.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.menuItem10});
             this.menuItem9.Text = "Help";
@@ -220,6 +210,7 @@
             // menuItem10
             // 
             this.menuItem10.Index = 0;
+            this.menuItem10.Shortcut = System.Windows.Forms.Shortcut.ShiftF1;
             this.menuItem10.Text = "About";
             this.menuItem10.Click += new System.EventHandler(this.menuItem10_Click);
             // 
@@ -259,6 +250,14 @@
             this.toolStripButton1.ToolTipText = "Open";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
+            // txtSlideDelay
+            // 
+            this.txtSlideDelay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSlideDelay.Name = "txtSlideDelay";
+            this.txtSlideDelay.Size = new System.Drawing.Size(45, 30);
+            this.txtSlideDelay.ToolTipText = "Slideshow delay (seconds)";
+            this.txtSlideDelay.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSlideDelay_KeyUp);
+            // 
             // toolStripButton7
             // 
             this.toolStripButton7.AutoSize = false;
@@ -271,14 +270,6 @@
             this.toolStripButton7.Text = "toolStripButton7";
             this.toolStripButton7.ToolTipText = "Slideshow";
             this.toolStripButton7.Click += new System.EventHandler(this.toolStripButton7_Click);
-            // 
-            // txtSlideDelay
-            // 
-            this.txtSlideDelay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSlideDelay.Name = "txtSlideDelay";
-            this.txtSlideDelay.Size = new System.Drawing.Size(45, 29);
-            this.txtSlideDelay.ToolTipText = "Slideshow delay (seconds)";
-            this.txtSlideDelay.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSlideDelay_KeyUp);
             // 
             // toolStripButton2
             // 
@@ -297,7 +288,7 @@
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 29);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 30);
             // 
             // toolStripButton4
             // 
@@ -344,7 +335,7 @@
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 29);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 30);
             // 
             // toolStripButton3
             // 
@@ -357,11 +348,34 @@
             this.toolStripButton3.ToolTipText = "About";
             this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
+            // menuItem11
+            // 
+            this.menuItem11.Index = 5;
+            this.menuItem11.Text = "-";
+            // 
+            // menuItem13
+            // 
+            this.menuItem13.Enabled = false;
+            this.menuItem13.Index = 4;
+            this.menuItem13.Shortcut = System.Windows.Forms.Shortcut.CtrlP;
+            this.menuItem13.Text = "Print";
+            // 
+            // menuItem15
+            // 
+            this.menuItem15.Index = 2;
+            this.menuItem15.Shortcut = System.Windows.Forms.Shortcut.CtrlW;
+            this.menuItem15.Text = "Slideshow";
+            this.menuItem15.Click += new System.EventHandler(this.menuItem15_Click);
+            // 
+            // menuItem16
+            // 
+            this.menuItem16.Index = 3;
+            this.menuItem16.Text = "-";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(597, 491);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.panel1);
@@ -377,7 +391,6 @@
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -404,8 +417,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.StatusBarPanel statusBarPanel1;
         private System.Windows.Forms.StatusBarPanel statusBarPanel2;
-        private System.Windows.Forms.MenuItem menuItem11;
-        private System.Windows.Forms.MenuItem menuItem13;
         private System.Windows.Forms.MenuItem menuItem12;
         private System.Windows.Forms.MenuItem menuItem14;
         private System.Windows.Forms.ToolStripButton toolStripButton4;
@@ -414,6 +425,10 @@
         private System.Windows.Forms.ToolStripButton toolStripButton6;
         private System.Windows.Forms.ToolStripButton toolStripButton7;
         private System.Windows.Forms.ToolStripTextBox txtSlideDelay;
+        private System.Windows.Forms.MenuItem menuItem13;
+        private System.Windows.Forms.MenuItem menuItem11;
+        private System.Windows.Forms.MenuItem menuItem15;
+        private System.Windows.Forms.MenuItem menuItem16;
     }
 }
 
